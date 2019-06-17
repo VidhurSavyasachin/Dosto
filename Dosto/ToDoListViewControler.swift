@@ -9,13 +9,15 @@
 import UIKit
 
 class ToDoListViewControler: UITableViewController{
-let itemArray = ["Study Datastructures","iOS","100 day programming"]
+   
+    var itemArray = ["iOS"]
     override func viewDidLoad() {
         super.viewDidLoad()
        
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "toDoItemCell", for: indexPath)
+        
         cell.textLabel?.text = itemArray[indexPath.row]
      
         return cell
@@ -34,6 +36,27 @@ let itemArray = ["Study Datastructures","iOS","100 day programming"]
         }
         tableView.deselectRow(at: indexPath, animated: true)
       
+    }
+    @IBAction func addNewItem(_ sender: UIBarButtonItem) {
+        var textField = UITextField()
+        let alert = UIAlertController(title: "Add New DoEto item", message: "", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Add item", style: .default) { (action) in
+            //once add is presssed
+            
+            self.itemArray.append(textField.text!)
+            self.tableView.reloadData()
+        
+      
+        }
+        alert.addTextField { (alertTextFeild) in
+            alertTextFeild.placeholder = "Create New Item"
+            textField = alertTextFeild
+            print("now")
+            
+        }
+        alert.addAction(action)
+        
+        present(alert, animated: true,completion: nil)
     }
 }
 
