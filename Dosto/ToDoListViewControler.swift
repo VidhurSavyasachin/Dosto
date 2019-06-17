@@ -11,9 +11,13 @@ import UIKit
 class ToDoListViewControler: UITableViewController{
    
     var itemArray = ["iOS"]
+    let defaults = UserDefaults.standard
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        if let items = defaults.array(forKey: "ToDoListArray")
+            as? [String] {
+            itemArray = items
+        }
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "toDoItemCell", for: indexPath)
@@ -26,6 +30,8 @@ class ToDoListViewControler: UITableViewController{
    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return itemArray.count
     }
+   
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(self.itemArray[indexPath.row])
       
@@ -37,6 +43,14 @@ class ToDoListViewControler: UITableViewController{
         tableView.deselectRow(at: indexPath, animated: true)
       
     }
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            self.itemArray.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+   
+    
     @IBAction func addNewItem(_ sender: UIBarButtonItem) {
         var textField = UITextField()
         let alert = UIAlertController(title: "Add New DoEto item", message: "", preferredStyle: .alert)
@@ -45,6 +59,7 @@ class ToDoListViewControler: UITableViewController{
             
             self.itemArray.append(textField.text!)
             self.tableView.reloadData()
+            self.defaults.set(self.itemArray, forKey: "ToDoListArray")
         
       
         }
