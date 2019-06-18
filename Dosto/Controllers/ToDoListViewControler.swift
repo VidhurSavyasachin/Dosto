@@ -10,20 +10,32 @@ import UIKit
 
 class ToDoListViewControler: UITableViewController{
    
-    var itemArray = ["iOS"]
+    var itemArray = [To_do_data]()
     let defaults = UserDefaults.standard
     override func viewDidLoad() {
         super.viewDidLoad()
+        let newItem = To_do_data()
+        newItem.to_do = "Find Mike"
+        itemArray.append(newItem)
+        let newItem1 = To_do_data()
+        newItem1.to_do = "Eat Eggos"
+        itemArray.append(newItem1)
+        let newItem2 = To_do_data()
+        newItem2.to_do = "Kill demogorgan"
+        itemArray.append(newItem2)
         if let items = defaults.array(forKey: "ToDoListArray")
-            as? [String] {
+            as? [To_do_data] {
             itemArray = items
         }
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "toDoItemCell", for: indexPath)
+        let item = itemArray[indexPath.row]
+        cell.textLabel?.text = item.to_do
         
-        cell.textLabel?.text = itemArray[indexPath.row]
-     
+        cell.accessoryType = item.checked ? .checkmark : .none
+        
+    
         return cell
         
     }
@@ -33,14 +45,19 @@ class ToDoListViewControler: UITableViewController{
    
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(self.itemArray[indexPath.row])
-      
-        if(tableView.cellForRow(at: indexPath)?.accessoryType == .checkmark){
-            tableView.cellForRow(at: indexPath)?.accessoryType = .none
-        }else{
-            tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
-        }
+        
+        
+        self.itemArray[indexPath.row].checked = !self.itemArray[indexPath.row].checked
+        
+       
+      tableView.reloadData()
+//        if(tableView.cellForRow(at: indexPath)?.accessoryType == .checkmark){
+//            tableView.cellForRow(at: indexPath)?.accessoryType = .none
+//        }else{
+//            tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+//        }
         tableView.deselectRow(at: indexPath, animated: true)
+        
       
     }
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -56,12 +73,13 @@ class ToDoListViewControler: UITableViewController{
         let alert = UIAlertController(title: "Add New DoEto item", message: "", preferredStyle: .alert)
         let action = UIAlertAction(title: "Add item", style: .default) { (action) in
             //once add is presssed
+            let newItem = To_do_data()
+            newItem.to_do = textField.text!
+            self.itemArray.append(newItem)
             
-            self.itemArray.append(textField.text!)
-            self.tableView.reloadData()
             self.defaults.set(self.itemArray, forKey: "ToDoListArray")
         
-      
+            self.tableView.reloadData()
         }
         alert.addTextField { (alertTextFeild) in
             alertTextFeild.placeholder = "Create New Item"
