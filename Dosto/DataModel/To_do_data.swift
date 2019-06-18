@@ -8,7 +8,7 @@
 
 import Foundation
 
-class To_do_data {
+class To_do_data: Encodable,Decodable {
     var to_do: String = ""
     var checked: Bool = false
  
