@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A24FE749396A04CFDF7ABA01 /* Pods_Dosto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E298D3D952507B417FA8E38 /* Pods_Dosto.framework */; };
 		EB272E8622B959A9005DA7A9 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EB272E8422B959A9005DA7A9 /* DataModel.xcdatamodeld */; };
 		EB8699BD22BA98DA005A3844 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8699BC22BA98DA005A3844 /* CategoryViewController.swift */; };
 		EB9A522522B71E4C0078AFEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9A522422B71E4C0078AFEB /* AppDelegate.swift */; };
@@ -17,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E298D3D952507B417FA8E38 /* Pods_Dosto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dosto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABB34A32F07E51ABED857445 /* Pods-Dosto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dosto.debug.xcconfig"; path = "Target Support Files/Pods-Dosto/Pods-Dosto.debug.xcconfig"; sourceTree = "<group>"; };
 		EB272E8522B959A9005DA7A9 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		EB8699BC22BA98DA005A3844 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		EB9A522122B71E4C0078AFEB /* Dosto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dosto.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -26,6 +29,7 @@
 		EB9A522B22B71E4D0078AFEB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB9A522E22B71E4D0078AFEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB9A523022B71E4D0078AFEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F07B0E6C151B09728DB2ADB2 /* Pods-Dosto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dosto.release.xcconfig"; path = "Target Support Files/Pods-Dosto/Pods-Dosto.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,12 +37,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A24FE749396A04CFDF7ABA01 /* Pods_Dosto.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		32D761CDE608E05C9A3A4F67 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				ABB34A32F07E51ABED857445 /* Pods-Dosto.debug.xcconfig */,
+				F07B0E6C151B09728DB2ADB2 /* Pods-Dosto.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		CCE5F298805AD9B0B13EFAA5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2E298D3D952507B417FA8E38 /* Pods_Dosto.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EB272E8022B85EB3005DA7A9 /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +101,8 @@
 			children = (
 				EB9A522322B71E4C0078AFEB /* Dosto */,
 				EB9A522222B71E4C0078AFEB /* Products */,
+				32D761CDE608E05C9A3A4F67 /* Pods */,
+				CCE5F298805AD9B0B13EFAA5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -109,9 +134,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EB9A523322B71E4D0078AFEB /* Build configuration list for PBXNativeTarget "Dosto" */;
 			buildPhases = (
+				B24A62C7A3A57CE29651B6F4 /* [CP] Check Pods Manifest.lock */,
 				EB9A521D22B71E4C0078AFEB /* Sources */,
 				EB9A521E22B71E4C0078AFEB /* Frameworks */,
 				EB9A521F22B71E4C0078AFEB /* Resources */,
+				5F534C8A07258D75E612A432 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -167,6 +194,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5F534C8A07258D75E612A432 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Dosto/Pods-Dosto-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Dosto/Pods-Dosto-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Dosto/Pods-Dosto-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B24A62C7A3A57CE29651B6F4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Dosto-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EB9A521D22B71E4C0078AFEB /* Sources */ = {
@@ -320,6 +389,7 @@
 		};
 		EB9A523422B71E4D0078AFEB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ABB34A32F07E51ABED857445 /* Pods-Dosto.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -338,6 +408,7 @@
 		};
 		EB9A523522B71E4D0078AFEB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F07B0E6C151B09728DB2ADB2 /* Pods-Dosto.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
